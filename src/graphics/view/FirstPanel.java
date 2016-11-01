@@ -25,8 +25,6 @@ public class FirstPanel extends JPanel
 		randomButton = new JButton("Random");
 		baseLayout = new SpringLayout();
 
-
-
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -48,6 +46,15 @@ public class FirstPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, randomButton, 91, SpringLayout.WEST, this);
 	}
 
+	private void changeBackground()
+	{
+		int red = (int) (Math.random() * 256);
+		int green = (int) (Math.random() * 256);
+		int blue = (int) (Math.random() * 256);
+		this.setBackground(new Color(red, green, blue));
+
+	}
+
 	private void setupListeners()
 	{
 		colorButton.addActionListener(new ActionListener()
@@ -55,6 +62,14 @@ public class FirstPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				setBackground(Color.gray);
+			}
+		});
+
+		randomButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				changeBackground();
 			}
 		});
 	}
